@@ -34,12 +34,4 @@ public class CustomerController(
     {
         return Ok(new CustomerResponse());
     }
-
-    [HttpGet]
-    public async Task<ActionResult<ICollection<CustomerResponse>>> GetCustomersByFilterAsync([FromQuery] CustomerFilter request)
-    {
-        var customers = mapper.Map<List<CustomerResponse>>(
-                                await customerService.GetCustomersAsync(request));
-        return Ok(new List<CustomerResponse>());
-    }
 }

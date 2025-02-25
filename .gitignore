@@ -9,7 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-
+ReportingServiceLog*.txt
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -365,3 +365,5 @@ FodyWeavers.xsd
 /ReportingService.Presentanion/appsettings.Development.json
 /ReportingService.Presentanion/appsettings.Dev.json
 /ReportingService.Presentanion/appsettings.Development.json
+/ReportingService.Presentanion/ReportingServiceLog-20250224.txt
+/ReportingService.Presentanion/ReportingServiceLog-20250224.txt

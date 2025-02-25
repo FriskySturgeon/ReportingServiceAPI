@@ -1,7 +1,7 @@
 ﻿namespace ReportingService.Core.Configuration.Filters;
 
-public class TransactionFilterForCustomer
+public class DepositDifferenceFilter
 {
-    public required int TransactionsCount { get; set; }
     public required DateFilter DateFilter { get; set; }
+    public required decimal DepositDifference { get; set; }
 }

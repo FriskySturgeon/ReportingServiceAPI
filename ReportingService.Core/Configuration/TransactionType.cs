@@ -1,10 +1,9 @@
-﻿
-namespace ReportingService.Core.Configuration;
+﻿namespace ReportingService.Core.Configuration;
 
 public enum TransactionType
 {
     Unknown = 0,
     Deposit,
-    Withdrawal,
+    Withdraw,
     Transfer
 }

@@ -16,6 +16,7 @@ public class Customer
     public string LastName { get; set; }
     public ICollection<Account> Accounts { get; set; } = [];
     public bool IsDeactivated { get; set; }
+    public Guid CustomerServiceId { get; set; }
     // DENORMALIZED
     public ICollection<Transaction> Transactions { get; set; } = [];
 }

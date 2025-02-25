@@ -18,7 +18,8 @@ internal static class CustomerEntityConfiguration
                 .WithOne(y => y.Customer)
                 .HasForeignKey(x => x.CustomerId);
 
-        builder.Entity<Customer>().HasMany(x => x.Transactions);
+        builder.Entity<Customer>().HasMany(x => x.Transactions).WithOne(y=>y.Customer)
+            .HasForeignKey(y => y.CustomerId).HasPrincipalKey(x => x.CustomerServiceId);
 
         builder.Entity<Customer>().Property(x => x.Id)
             .IsRequired()

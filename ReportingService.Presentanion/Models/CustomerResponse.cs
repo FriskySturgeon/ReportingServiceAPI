@@ -13,7 +13,5 @@ public class CustomerResponse
     public DateTime BirthDate { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
-    //public ICollection<AccountModel> Accounts { get; set; } = [];
     public bool IsDeactivated { get; set; }
-    //public ICollection<TransactionModel> Transactions { get; set; } = [];
 }

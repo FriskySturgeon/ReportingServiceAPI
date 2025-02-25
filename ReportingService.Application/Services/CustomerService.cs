@@ -95,25 +95,6 @@ public class CustomerService(
         return customerModels;
     }
 
-    public async Task<List<CustomerModel>> GetCustomersAsync(CustomerFilter? filter)
-    {
-        logger.LogInformation($"GET customers by filter: transactions count {filter.TransactionFilter.TransactionsCount}," +
-                              $"transaction dates {filter.TransactionFilter.DateStart} - {filter.TransactionFilter.DateEnd}," +
-                              $"accounts with currencies {filter.AccountFilter.Currencies.ToString} count {filter.AccountFilter.AccountsCount}," +
-                              $"bith {filter.BdayFilter.DateStart} - {filter.BdayFilter.DateEnd}");
-        var customers = await customerRepository.FindManyAsync(x => filter == null ||
-                filter.TransactionFilter == null ||
-                x.Transactions.Where(y => y.Date >= filter.TransactionFilter.DateStart &&
-                y.Date < filter.TransactionFilter.DateEnd).ToList().Count > filter.TransactionFilter.TransactionsCount &&
-                filter.AccountFilter == null ||
-                x.Accounts.Where(y => filter.AccountFilter.Currencies.Contains(y.Currency)).ToList().Count > filter.AccountFilter.AccountsCount &&
-                filter.BdayFilter == null || x.BirthDate>= filter.BdayFilter.DateStart && x.BirthDate < filter.BdayFilter.DateEnd);
-
-        var customerModels = mapper.Map<List<CustomerModel>>(customers);
-        logger.LogInformation("SUCCESS");
-        return customerModels;
-    }
-
     public async Task TransactionalAddCustomersAsync(List<CustomerModel> customerModels)
     {
         logger.LogInformation($"CREATE {customerModels.Count} customers ");
