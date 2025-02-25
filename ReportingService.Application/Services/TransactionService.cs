@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ReportingService.Application.Models;
+using ReportingService.Application.Services.Interfaces;
 using ReportingService.Core;
 using ReportingService.Persistence.Entities;
 using ReportingService.Persistence.Repositories.Interfaces;
@@ -8,7 +9,7 @@ namespace ReportingService.Application.Services
 {
     public class TransactionService(
         ITransactionRepository transactionRepository,
-        IMapper mapper)
+        IMapper mapper) : ITransactionService
     {
         public async Task<List<TransactionModel>> SearchTransaction(
             Guid customerId,

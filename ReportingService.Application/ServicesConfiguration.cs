@@ -16,6 +16,8 @@ public static class ServicesConfiguration
     {
         services.AddScoped<ICustomerService, CustomerService>();
         services.AddAutoMapper(typeof(CustomerMapperProfile).Assembly);
+        services.AddTransient<ITransactionService, TransactionService>();
+        services.AddTransient<IAccountService, AccountService>();
 
         //services.Configure<RabbitMQSettings>(configuration.GetSection("RabbitMQSettings"));
 

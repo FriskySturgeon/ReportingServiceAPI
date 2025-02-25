@@ -13,7 +13,7 @@ namespace ReportingService.Persistence.Migrations
 {
     [DbContext(typeof(ReportingContext))]
     [Migration("20250206004741_init")]
-    partial class init
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

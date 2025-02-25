@@ -2,6 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using ReportingService.Application.Models;
 using ReportingService.Application.Services;
+using ReportingService.Application.Services.Interfaces;
 using ReportingService.Core;
 using ReportingService.Core.Configuration;
 using ReportingService.Presentanion.Models;
@@ -13,7 +14,7 @@ namespace ReportingService.Presentanion.Controllers;
 
 [Route("api/transactions")]
 public class TransactionController(
-    TransactionService transactionService,
+    ITransactionService transactionService,
     IMapper mapper) : Controller
 {
     [HttpPost("by-customer")]

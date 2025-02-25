@@ -2,13 +2,14 @@
 using Microsoft.Extensions.Logging;
 using ReportingService.Application.Exceptions;
 using ReportingService.Application.Models;
+using ReportingService.Application.Services.Interfaces;
 using ReportingService.Persistence.Repositories.Interfaces;
 
 namespace ReportingService.Application.Services;
 
 public class AccountService(
     IAccountRepository accountRepository,
-    IMapper mapper, ILogger<AccountService> logger)
+    IMapper mapper, ILogger<AccountService> logger) : IAccountService
 {
     public async Task<List<AccountModel>> GetAccountsByCustomerIdAsync(
     Guid customerId)
